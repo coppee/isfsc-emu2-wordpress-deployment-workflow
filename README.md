@@ -73,9 +73,13 @@ Si tout c'est bien déroulé, vous devriez voir vos nouvelles tables dans la col
 
 ### 3. Modifier la configuration de l'installation Wordpress hébergée
 
+Il y a 2 manipulations, l'une du coté du serveur FTP, l'autre du coté de la DB
+
+#### Du coté des fichiers (serveur FTP)
+
 Maintenant que nos fichiers ont été uploadés sur le serveur et que notre DB a été migrée, il nous reste à indiquer à notre installation Wordpress, les nouvelles informations pour accéder à cette DB (càd DB_NAME, DB_USER, DB_PASSWORD et DB_HOST)
 
-Nous allons retourner sur FileZilla et nous connecter à nouveau au serveur. A la racine de celui-ci vous allez trouver le fichier wp-config.php (pas wp-config-sample.php). Nous allons devoir modifier celui-ci. Le plus simple est de faire un clic droit sur le fichier du coté serveur (coté droit) et de choisir "View/Edit" [<a href="github/screenshots/ftp_04.png" target="_blank">screenshot</a>] pour l'ouvrir dans votre éditeur de texte favoris. 
+Nous allons retourner sur FileZilla et nous connecter à nouveau au serveur. A la racine de celui-ci vous allez trouver le fichier *wp-config.php* (et pas *wp-config-sample.php*). Nous allons devoir modifier celui-ci. Le plus simple est de faire un clic droit sur le fichier du coté serveur (coté droit) et de choisir "View/Edit" [<a href="github/screenshots/ftp_04.png" target="_blank">screenshot</a>] pour l'ouvrir dans votre éditeur de texte favoris. 
 
 Ce qui nous intéresse ce situe entre la ligne 22 et la ligne 32 du fichier, vous devriez avoir qqch comme ceci :
 
@@ -109,6 +113,16 @@ Le but va être de remplacer les valeurs "locales" par les informations d'accès
 Faites bien attention à la dernière ligne, elle contient le "host" ET le "port" séparés par le caractère ":". 
 
 Une fois l'opération réalisée, sauvegardez le fichier et retournez sur FileZilla où vous allez devoir confirmer l'upload de ce fichier modifié (cliquez sur "Yes") [<a href="github/screenshots/ftp_05.png" target="_blank">screenshot</a>]
+
+#### Du coté de la DB
+
+On se connecte à PHPMyAdmin (voir plus haut si besoin), séléctionnez votre base de donnée en cliquant sur son nom (colonne de gauche), puis cliquez sur le nom de la table *wp_options* pour voir les données de celle-ci. [<a href="github/screenshots/pma_03.png" target="_blank">screenshot</a>] 
+
+Le but va être de modifier la valeur du champ *option_value* des 2 premières entrées soit de la ligne 1 (option_name = siteurl) et de la ligne 2 (option_name = home). Comme vous le voyez ces deux lignes ont comme valeur l'url de votre site en local, nous allons donc modifier ces deux valeurs pour qu'elles correspondent à votre url online soit http://[nomdevotreprojet].proto.tips 
+
+Pour modifier une valeur, il vous suffit de double-cliquer sur le champ qui nous interesse, de modifier celui-ci et de valider la modification en cliquant "à coté" [<a href="github/screenshots/pma_04.png" target="_blank">screenshot</a>].
+
+Le résultat doit être la modification des deux premières lignes avec votre URL finale [<a href="github/screenshots/pma_05.png" target="_blank">screenshot</a>].
 
 ### Félicitation !
 
