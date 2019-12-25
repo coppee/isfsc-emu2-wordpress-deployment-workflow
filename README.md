@@ -56,11 +56,11 @@ La première partie de cette étape (l'export de la DB locale) se fait différem
 
 #### La suite est commune pour les Win/Mac
 
-1. Accédez ensuite à PHPMyAdmin via https://phpmyadmin.ovh.net/ et connectez-vous avec les accès que l'on vous a communiqués.
+1. Accédez ensuite à PHPMyAdmin via https://phpmyadmin-gra1.hosting.ovh.net/ et connectez-vous avec les accès que l'on vous a communiqués.
 
 2. Une fois connecté, cliquez sur le nom de votre db dans la colonne de gauche (c'est le même nom que votre DB USER).
 
-3. Si vous voyez déjà des tables dans votre DB (ce qui devrait être le cas, vu que l'on a fait l'exercice en classe), on va commencer par supprimer celles-ci : 
+3. Si vous voyez déjà des tables dans votre DB, on va commencer par supprimer celles-ci : 
     - Cochez la case checkbox "Tout cochez" en dessous du tableau 
     - Dans le select box à coté de cette case, sélectionnez l'option "Supprimer".  [<a href="github/screenshots/pma_01.png" target="_blank">screenshot</a>]
     - Cliquez sur le bouton "Exécuter"
@@ -99,18 +99,20 @@ Ce qui nous intéresse ce situe entre la ligne 22 et la ligne 32 du fichier, vou
 Le but va être de remplacer les valeurs "locales" par les informations d'accès à la DB que vous avez reçues précédement, comme ceci :
 
       /** The name of the database for WordPress */
-      define('DB_NAME', '[DB user]');
+      define('DB_NAME', '[DB NAME]');
       
       /** MySQL database username */
-      define('DB_USER', '[DB user]');
+      define('DB_USER', '[DB USERNAME]');
       
       /** MySQL database password */
-      define('DB_PASSWORD', '[DB password]');
+      define('DB_PASSWORD', '[DB PASSSWORD]');
       
       /** MySQL hostname */
-      define('DB_HOST', '[DB host]:[DB port]');
+      define('DB_HOST', '[DB HOST]:[DB PORT]');
       
 Faites bien attention à la dernière ligne, elle contient le "host" ET le "port" séparés par le caractère ":". 
+
+Notez également que le DB_NAME et le DB_USER sont sensés être semblables.
 
 Une fois l'opération réalisée, sauvegardez le fichier et retournez sur FileZilla où vous allez devoir confirmer l'upload de ce fichier modifié (cliquez sur "Yes") [<a href="github/screenshots/ftp_05.png" target="_blank">screenshot</a>]
 
@@ -118,7 +120,7 @@ Une fois l'opération réalisée, sauvegardez le fichier et retournez sur FileZi
 
 On se connecte à PHPMyAdmin (voir plus haut si besoin), séléctionnez votre base de donnée en cliquant sur son nom (colonne de gauche), puis cliquez sur le nom de la table *wp_options* pour voir les données de celle-ci. [<a href="github/screenshots/pma_03.png" target="_blank">screenshot</a>] 
 
-Le but va être de modifier la valeur du champ *option_value* des 2 premières entrées soit de la ligne 1 (option_name = siteurl) et de la ligne 2 (option_name = home). Comme vous le voyez ces deux lignes ont comme valeur l'url de votre site en local, nous allons donc modifier ces deux valeurs pour qu'elles correspondent à votre url online soit http://[nomdevotreprojet].proto.tips 
+Le but va être de modifier la valeur du champ *option_value* des 2 premières entrées soit de la ligne 1 (option_name = siteurl) et de la ligne 2 (option_name = home). Comme vous le voyez ces deux lignes ont comme valeur l'url de votre site en local, nous allons donc modifier ces deux valeurs pour qu'elles correspondent à votre url online soit http://[nomdevotreprojet].emu2.be
 
 Pour modifier une valeur, il vous suffit de double-cliquer sur le champ qui nous interesse, de modifier celui-ci et de valider la modification en cliquant "à coté" [<a href="github/screenshots/pma_04.png" target="_blank">screenshot</a>].
 
