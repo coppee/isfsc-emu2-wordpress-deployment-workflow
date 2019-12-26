@@ -18,7 +18,7 @@ Le déploiement se fait en 3 temps :
 2. Cliquez sur le bouton en haut à gauche pour ouvrir la fenêtre de "Site Manager".
 3. Si vous n'avez aucun "site" enregistré dans la colonne de gauche passé au point 4 sinon sélectionnez le "site" désiré dans la colonne de gauche et cliquez sur le bouton "Connect" (passez au point 5) [<a href="github/screenshots/ftp_01.png" target="_blank">screenshot</a>]
 4. Si vous n'avez pas de "site" enregistré, cliqué sur le bouton "New site" et insérez les informations FTP communiquées précédemment (FTP host, FTP user, FTP password). [<a href="github/screenshots/ftp_02.png" target="_blank">screenshot</a>] Puis cliquez sur le bouton "Connect".
-5. Une fois connecté, on va devoir transférer TOUS les fichiers de notre site Wordpress local (colonne de gauche) vers le serveur (colonne de droite) via un Glisser/Déposer chaloupé [<a href="github/screenshots/ftp_03.png" target="_blank">screenshot</a>]. Le transfert des fichiers peut prendre un temps certain, l'opération est terminée quand il n'y a plus de fichiers dans la fenêtre "Queued files" (en bas).
+5. Une fois connecté, commencez par supprimer le fichier index.html (si il s'y trouve), ensuite on va devoir transférer TOUS les fichiers de notre site Wordpress local (colonne de gauche) vers le serveur (colonne de droite) via un Glisser/Déposer chaloupé [<a href="github/screenshots/ftp_03.png" target="_blank">screenshot</a>]. Le transfert des fichiers peut prendre un temps certain, l'opération est terminée quand il n'y a plus de fichiers dans la fenêtre "Queued files" (en bas).
 
 ### 2. Migrer votre base de donnée (DB)
 
@@ -57,6 +57,8 @@ La première partie de cette étape (l'export de la DB locale) se fait différem
 #### La suite est commune pour les Win/Mac
 
 1. Accédez ensuite à PHPMyAdmin via https://phpmyadmin-gra1.hosting.ovh.net/ et connectez-vous avec les accès que l'on vous a communiqués.
+
+Attention, il se peut que vous deviez désactiver vos adblockers pour pouvoir vous connecter.
 
 2. Une fois connecté, cliquez sur le nom de votre db dans la colonne de gauche (c'est le même nom que votre DB USER).
 
